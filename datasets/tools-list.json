@@ -1,0 +1,521 @@
+[
+  {
+    "name": "Android Studio / Emulator",
+    "category": "mobile-testing",
+    "subcategory": "environment",
+    "free": true,
+    "license_note": "Darmowe narzędzia developerskie Google",
+    "difficulty": "easy-medium",
+    "manual_tester_value": "very high",
+    "automation_value": "medium",
+    "requires_code": false,
+    "best_for": [
+      "emulatory Android",
+      "logcat",
+      "instalacja APK",
+      "testy kompatybilności"
+    ],
+    "use_when": "Gdy testujesz aplikację Android bez pełnej puli realnych urządzeń albo chcesz szybko odtworzyć błąd.",
+    "next_step": "Połącz z ADB, Appium, Maestro albo Firebase Test Lab.",
+    "url": "https://developer.android.com/studio"
+  },
+  {
+    "name": "ADB",
+    "category": "mobile-testing",
+    "subcategory": "debugging",
+    "free": true,
+    "license_note": "Część Android SDK Platform Tools",
+    "difficulty": "medium",
+    "manual_tester_value": "very high",
+    "automation_value": "high",
+    "requires_code": false,
+    "best_for": [
+      "logi",
+      "instalacja APK",
+      "screenrecord",
+      "zrzuty ekranu",
+      "intencje Android"
+    ],
+    "use_when": "Gdy potrzebujesz technicznych danych z urządzenia, logów, nagrania ekranu albo szybkiej instalacji aplikacji.",
+    "next_step": "Naucz się komend: adb devices, adb install, adb logcat, adb shell, adb bugreport.",
+    "url": "https://developer.android.com/tools/adb"
+  },
+  {
+    "name": "scrcpy",
+    "category": "mobile-testing",
+    "subcategory": "device-mirroring",
+    "free": true,
+    "license_note": "Open source",
+    "difficulty": "easy",
+    "manual_tester_value": "high",
+    "automation_value": "low",
+    "requires_code": false,
+    "best_for": [
+      "podgląd telefonu na PC",
+      "nagrania",
+      "demo błędów",
+      "praca z realnym urządzeniem"
+    ],
+    "use_when": "Gdy chcesz wygodnie obsługiwać Androida z komputera i nagrywać reprodukcję błędu.",
+    "next_step": "Połącz z ADB, narzędziami do nagrywania i checklistą bug reportu.",
+    "url": "https://github.com/Genymobile/scrcpy"
+  },
+  {
+    "name": "Appium",
+    "category": "mobile-automation",
+    "subcategory": "e2e",
+    "free": true,
+    "license_note": "Open source",
+    "difficulty": "medium-hard",
+    "manual_tester_value": "high",
+    "automation_value": "very high",
+    "requires_code": true,
+    "best_for": [
+      "Android",
+      "iOS",
+      "regresja",
+      "cross-platform mobile automation"
+    ],
+    "use_when": "Gdy aplikacja mobilna wymaga solidnej automatyzacji E2E i możesz pracować z kodem testów.",
+    "next_step": "Zacznij od prostych testów w Pythonie albo Javie, potem dodaj Page Object i Allure.",
+    "url": "https://github.com/appium/appium"
+  },
+  {
+    "name": "Appium MCP",
+    "category": "ai-for-testing",
+    "subcategory": "mcp-mobile-automation",
+    "free": true,
+    "license_note": "Repozytorium open source; sprawdź licencję w repo przed użyciem komercyjnym",
+    "difficulty": "medium-hard",
+    "manual_tester_value": "medium-high",
+    "automation_value": "high",
+    "requires_code": true,
+    "best_for": [
+      "AI-assisted mobile automation",
+      "natural language testing",
+      "generowanie locatorów"
+    ],
+    "use_when": "Gdy chcesz eksperymentować z AI-agentem sterującym Appium i urządzeniami mobilnymi.",
+    "next_step": "Uruchom lokalnie, połącz z emulatorem i testuj generowanie kroków na prostych ekranach.",
+    "url": "https://github.com/appium/appium-mcp"
+  },
+  {
+    "name": "Maestro",
+    "category": "mobile-automation",
+    "subcategory": "yaml-e2e",
+    "free": true,
+    "license_note": "Open source; Maestro Cloud jest płatny",
+    "difficulty": "easy-medium",
+    "manual_tester_value": "very high",
+    "automation_value": "high",
+    "requires_code": false,
+    "best_for": [
+      "szybkie flow E2E",
+      "YAML",
+      "Android",
+      "iOS",
+      "proste testy regresji"
+    ],
+    "use_when": "Gdy manualny tester chce szybko wejść w automatyzację bez ciężkiego frameworka.",
+    "next_step": "Napisz pierwsze flow YAML: launchApp, tapOn, inputText, assertVisible.",
+    "url": "https://github.com/mobile-dev-inc/maestro"
+  },
+  {
+    "name": "Playwright",
+    "category": "web-automation",
+    "subcategory": "e2e",
+    "free": true,
+    "license_note": "Open source",
+    "difficulty": "medium",
+    "manual_tester_value": "high",
+    "automation_value": "very high",
+    "requires_code": true,
+    "best_for": [
+      "web",
+      "mobile web",
+      "PWA",
+      "admin panel",
+      "webview-adjacent testing"
+    ],
+    "use_when": "Gdy aplikacja mobilna ma panel admina, webview, PWA albo backendowe procesy webowe.",
+    "next_step": "Zacznij od Playwright Codegen i testów w TypeScript.",
+    "url": "https://github.com/microsoft/playwright"
+  },
+  {
+    "name": "Playwright MCP",
+    "category": "ai-for-testing",
+    "subcategory": "mcp-web-automation",
+    "free": true,
+    "license_note": "Sprawdź aktualną licencję repozytorium",
+    "difficulty": "medium",
+    "manual_tester_value": "high",
+    "automation_value": "high",
+    "requires_code": false,
+    "best_for": [
+      "AI-agent",
+      "eksploracja UI",
+      "generowanie scenariuszy",
+      "web automation"
+    ],
+    "use_when": "Gdy chcesz, aby AI mogło sterować przeglądarką i pomagać w testach webowych.",
+    "next_step": "Połącz z Claude/Cursor/innym klientem MCP i zacznij od panelu testowego.",
+    "url": "https://github.com/microsoft/playwright-mcp"
+  },
+  {
+    "name": "Browser Use",
+    "category": "ai-for-testing",
+    "subcategory": "browser-agent",
+    "free": true,
+    "license_note": "Open source; usługi hosted/cloud mogą być płatne",
+    "difficulty": "medium",
+    "manual_tester_value": "medium-high",
+    "automation_value": "high",
+    "requires_code": true,
+    "best_for": [
+      "AI browser agents",
+      "automatyzacja procesów web",
+      "eksploracja paneli"
+    ],
+    "use_when": "Gdy chcesz automatyzować działania w przeglądarce przy pomocy LLM.",
+    "next_step": "Stosuj do paneli admina i procesów okołomobilnych, nie jako zamiennik stabilnej regresji.",
+    "url": "https://github.com/browser-use/browser-use"
+  },
+  {
+    "name": "Postman",
+    "category": "api-testing",
+    "subcategory": "api-client",
+    "free": true,
+    "license_note": "Plan darmowy z ograniczeniami; sprawdź warunki firmowe",
+    "difficulty": "easy-medium",
+    "manual_tester_value": "very high",
+    "automation_value": "high",
+    "requires_code": false,
+    "best_for": [
+      "REST API",
+      "kolekcje",
+      "mocki",
+      "testy kontraktów",
+      "dokumentacja API"
+    ],
+    "use_when": "Gdy musisz sprawdzać backend aplikacji mobilnej niezależnie od UI.",
+    "next_step": "Dodaj testy w zakładce Tests i uruchamiaj kolekcje w Newman.",
+    "url": "https://www.postman.com/"
+  },
+  {
+    "name": "Bruno",
+    "category": "api-testing",
+    "subcategory": "api-client",
+    "free": true,
+    "license_note": "Open source; Pro/Golden Edition może być płatna",
+    "difficulty": "easy-medium",
+    "manual_tester_value": "high",
+    "automation_value": "medium-high",
+    "requires_code": false,
+    "best_for": [
+      "API testing",
+      "kolekcje w repo",
+      "alternatywa dla Postmana"
+    ],
+    "use_when": "Gdy chcesz trzymać requesty API lokalnie i wersjonować je w Git.",
+    "next_step": "Utwórz kolekcje dla logowania, profilu, zamówień i krytycznych endpointów.",
+    "url": "https://github.com/usebruno/bruno"
+  },
+  {
+    "name": "Hoppscotch",
+    "category": "api-testing",
+    "subcategory": "api-client",
+    "free": true,
+    "license_note": "Open source/self-host możliwy; sprawdź licencję i plany",
+    "difficulty": "easy",
+    "manual_tester_value": "medium-high",
+    "automation_value": "medium",
+    "requires_code": false,
+    "best_for": [
+      "szybkie requesty",
+      "REST",
+      "GraphQL",
+      "web client"
+    ],
+    "use_when": "Gdy potrzebujesz lekkiego narzędzia do szybkiego testowania API.",
+    "next_step": "Porównaj z Bruno/Postman pod kątem pracy zespołowej.",
+    "url": "https://github.com/hoppscotch/hoppscotch"
+  },
+  {
+    "name": "mitmproxy",
+    "category": "debugging",
+    "subcategory": "proxy",
+    "free": true,
+    "license_note": "Open source",
+    "difficulty": "medium-hard",
+    "manual_tester_value": "high",
+    "automation_value": "medium",
+    "requires_code": false,
+    "best_for": [
+      "analiza ruchu HTTP",
+      "debug API",
+      "mobile proxy",
+      "mockowanie"
+    ],
+    "use_when": "Gdy chcesz przechwycić requesty aplikacji mobilnej bez płatnego Charlesa.",
+    "next_step": "Skonfiguruj proxy na telefonie i zainstaluj certyfikat testowy.",
+    "url": "https://mitmproxy.org/"
+  },
+  {
+    "name": "Charles Proxy",
+    "category": "debugging",
+    "subcategory": "proxy",
+    "free": false,
+    "license_note": "Płatne, ale bardzo popularne w mobile QA",
+    "difficulty": "medium",
+    "manual_tester_value": "very high",
+    "automation_value": "medium",
+    "requires_code": false,
+    "best_for": [
+      "mobile proxy",
+      "SSL proxying",
+      "analiza requestów",
+      "debug sieci"
+    ],
+    "use_when": "Gdy zespół używa sprawdzonego proxy i potrzebuje wygodnego UI.",
+    "next_step": "Jeżeli budżet zerowy, zacznij od mitmproxy.",
+    "url": "https://www.charlesproxy.com/"
+  },
+  {
+    "name": "Fiddler Everywhere",
+    "category": "debugging",
+    "subcategory": "proxy",
+    "free": false,
+    "license_note": "Płatne; dostępna wersja trial",
+    "difficulty": "medium",
+    "manual_tester_value": "high",
+    "automation_value": "medium",
+    "requires_code": false,
+    "best_for": [
+      "HTTP debugging",
+      "mobile traffic",
+      "desktop/web debugging"
+    ],
+    "use_when": "Gdy firma ma licencję lub potrzebujesz alternatywy dla Charlesa.",
+    "next_step": "Porównaj koszty z Charles i darmowym mitmproxy.",
+    "url": "https://www.telerik.com/fiddler/fiddler-everywhere"
+  },
+  {
+    "name": "Firebase Crashlytics",
+    "category": "mobile-testing",
+    "subcategory": "crash-reporting",
+    "free": true,
+    "license_note": "Część Firebase; sprawdź limity i politykę danych",
+    "difficulty": "medium",
+    "manual_tester_value": "high",
+    "automation_value": "medium",
+    "requires_code": false,
+    "best_for": [
+      "crashe",
+      "stack trace",
+      "monitoring wersji",
+      "priorytetyzacja błędów"
+    ],
+    "use_when": "Gdy chcesz widzieć rzeczywiste crashe z testów i produkcji.",
+    "next_step": "Łącz zgłoszenia z Jira i wersjami buildów.",
+    "url": "https://firebase.google.com/products/crashlytics"
+  },
+  {
+    "name": "Firebase Test Lab",
+    "category": "mobile-testing",
+    "subcategory": "device-cloud",
+    "free": false,
+    "license_note": "Model płatny/limity w Google Cloud",
+    "difficulty": "medium",
+    "manual_tester_value": "medium-high",
+    "automation_value": "high",
+    "requires_code": false,
+    "best_for": [
+      "testy na wielu urządzeniach",
+      "Android",
+      "automatyczne testy",
+      "kompatybilność"
+    ],
+    "use_when": "Gdy nie masz fizycznej farmy urządzeń, a musisz sprawdzić kompatybilność.",
+    "next_step": "Uruchom smoke test na kilku popularnych modelach Android.",
+    "url": "https://firebase.google.com/products/test-lab"
+  },
+  {
+    "name": "Jira",
+    "category": "test-management",
+    "subcategory": "issue-tracking",
+    "free": true,
+    "license_note": "Plan darmowy z ograniczeniami użytkowników/funkcji",
+    "difficulty": "easy-medium",
+    "manual_tester_value": "very high",
+    "automation_value": "medium",
+    "requires_code": false,
+    "best_for": [
+      "bug reporting",
+      "workflow",
+      "projekty agile",
+      "integracje"
+    ],
+    "use_when": "Gdy zespół prowadzi backlog, bugi i sprinty w Atlassian.",
+    "next_step": "Ustandaryzuj szablon bug reportu i pola Severity/Priority.",
+    "url": "https://www.atlassian.com/software/jira"
+  },
+  {
+    "name": "Xray",
+    "category": "test-management",
+    "subcategory": "jira-test-management",
+    "free": false,
+    "license_note": "Płatny dodatek do Jira",
+    "difficulty": "medium",
+    "manual_tester_value": "high",
+    "automation_value": "high",
+    "requires_code": false,
+    "best_for": [
+      "test cases in Jira",
+      "traceability",
+      "manual + automation",
+      "raportowanie"
+    ],
+    "use_when": "Gdy firma używa Jira i chce pełne zarządzanie testami.",
+    "next_step": "Porównaj z Zephyr, Qase, TestRail i Kiwi TCMS.",
+    "url": "https://www.getxray.app/"
+  },
+  {
+    "name": "Kiwi TCMS",
+    "category": "test-management",
+    "subcategory": "test-case-management",
+    "free": true,
+    "license_note": "Open source/self-host",
+    "difficulty": "medium",
+    "manual_tester_value": "high",
+    "automation_value": "medium-high",
+    "requires_code": false,
+    "best_for": [
+      "test cases",
+      "test plans",
+      "test runs",
+      "self-host"
+    ],
+    "use_when": "Gdy chcesz darmowe, firmowe i lokalnie hostowane zarządzanie testami.",
+    "next_step": "Postaw demo w Dockerze i sprawdź workflow test case → test run → report.",
+    "url": "https://github.com/kiwitcms/Kiwi"
+  },
+  {
+    "name": "TestLink",
+    "category": "test-management",
+    "subcategory": "test-case-management",
+    "free": true,
+    "license_note": "Open source, ale projekt jest starszy",
+    "difficulty": "medium",
+    "manual_tester_value": "medium",
+    "automation_value": "low-medium",
+    "requires_code": false,
+    "best_for": [
+      "klasyczne zarządzanie przypadkami testowymi",
+      "mały budżet"
+    ],
+    "use_when": "Gdy potrzebujesz prostego self-hosted test management i akceptujesz starszy UX.",
+    "next_step": "Najpierw porównaj z Kiwi TCMS, bo Kiwi zwykle będzie lepszym startem.",
+    "url": "https://github.com/TestLinkOpenSourceTRMS/testlink-code"
+  },
+  {
+    "name": "Allure Report",
+    "category": "automation-reporting",
+    "subcategory": "reports",
+    "free": true,
+    "license_note": "Open source; Allure TestOps jest płatny",
+    "difficulty": "medium",
+    "manual_tester_value": "medium",
+    "automation_value": "very high",
+    "requires_code": true,
+    "best_for": [
+      "raporty automatyzacji",
+      "historia testów",
+      "screenshots",
+      "CI"
+    ],
+    "use_when": "Gdy testy automatyczne muszą mieć czytelne raporty dla QA, devów i managera.",
+    "next_step": "Dodaj do Playwright/Appium/pytest/JUnit.",
+    "url": "https://github.com/allure-framework/allure2"
+  },
+  {
+    "name": "Sentry",
+    "category": "debugging",
+    "subcategory": "error-monitoring",
+    "free": true,
+    "license_note": "Plan darmowy z limitami; self-host możliwy, ale cięższy",
+    "difficulty": "medium",
+    "manual_tester_value": "high",
+    "automation_value": "medium",
+    "requires_code": false,
+    "best_for": [
+      "error monitoring",
+      "frontend",
+      "backend",
+      "mobile",
+      "releases"
+    ],
+    "use_when": "Gdy błędy produkcyjne i testowe muszą trafiać do zespołu z kontekstem technicznym.",
+    "next_step": "Połącz eventy z wersją aplikacji i zgłoszeniami w Jira.",
+    "url": "https://sentry.io/"
+  },
+  {
+    "name": "GitHub Copilot",
+    "category": "ai-for-testing",
+    "subcategory": "coding-assistant",
+    "free": false,
+    "license_note": "Płatne lub firmowe; u Ciebie może być dostęp przez firmę",
+    "difficulty": "easy-medium",
+    "manual_tester_value": "high",
+    "automation_value": "very high",
+    "requires_code": false,
+    "best_for": [
+      "pisanie testów",
+      "wyjaśnianie kodu",
+      "generowanie przypadków testowych",
+      "review testów"
+    ],
+    "use_when": "Gdy masz dostęp do repo i chcesz szybciej rozumieć kod oraz tworzyć automaty.",
+    "next_step": "Używaj go z checklistą bezpieczeństwa: nie akceptuj kodu bez zrozumienia.",
+    "url": "https://github.com/features/copilot"
+  },
+  {
+    "name": "Continue.dev",
+    "category": "ai-for-testing",
+    "subcategory": "local-ai-coding",
+    "free": true,
+    "license_note": "Open source; zależnie od modeli możesz używać lokalnie lub cloud",
+    "difficulty": "medium",
+    "manual_tester_value": "medium-high",
+    "automation_value": "high",
+    "requires_code": false,
+    "best_for": [
+      "lokalny asystent kodu",
+      "Ollama",
+      "VS Code",
+      "repo context"
+    ],
+    "use_when": "Gdy chcesz używać lokalnego LLM do pracy z testami i repozytorium.",
+    "next_step": "Połącz z modelem Qwen/Coder przez Ollama i zacznij od generowania testów jednostkowych pomocniczych.",
+    "url": "https://github.com/continuedev/continue"
+  },
+  {
+    "name": "Roo Code / Cline",
+    "category": "ai-for-testing",
+    "subcategory": "agentic-coding",
+    "free": true,
+    "license_note": "Rozszerzenia open source; koszt zależy od użytego modelu",
+    "difficulty": "medium-hard",
+    "manual_tester_value": "medium",
+    "automation_value": "very high",
+    "requires_code": true,
+    "best_for": [
+      "agent w IDE",
+      "modyfikacja repo",
+      "tworzenie frameworka testowego",
+      "refactoring"
+    ],
+    "use_when": "Gdy tester ma dostęp do repo i chce półautomatycznie budować testy lub framework.",
+    "next_step": "Zacznij od małego zadania: dodać jeden test, nie refaktor całego projektu.",
+    "url": "https://github.com/RooVetGit/Roo-Code"
+  }
+]
