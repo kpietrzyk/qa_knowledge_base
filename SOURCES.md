@@ -30,6 +30,12 @@ Repo zawiera wiedzę praktyczną oraz linki do oficjalnych stron/repozytoriów n
 - **chatgpt-for-qa** — przewodnik + przykłady użycia AI przez QA Engineer:
   https://github.com/AlexKuchkov/chatgpt-for-qa
 
+- **awesome-mobile-qa** — kuratorska lista bibliotek i narzędzi open-source dla mobile QA:
+  https://github.com/atinfo/awesome-mobile-qa
+
+- **awesome-testing** — kuratorska baza wiedzy o strategiach testowania, danych testowych i mockach:
+  https://github.com/TheJambo/awesome-testing
+
 ## Uwaga o cenach i licencjach
 
 Ceny, licencje i limity planów mogą się zmieniać. Przed wdrożeniem w firmie sprawdź aktualne warunki użycia.

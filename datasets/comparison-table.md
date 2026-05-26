@@ -37,8 +37,10 @@
 | Postman | api-testing | True (plan) | False | very high | high | Dodaj testy w zakładce Tests i uruchamiaj kolekcje w Newman. |
 | Bruno | api-testing | True | False | high | medium-high | Utwórz kolekcje dla logowania, profilu, zamówień i krytycznych endpointów. |
 | Hoppscotch | api-testing | True | False | medium-high | medium | Porównaj z Bruno/Postman pod kątem pracy zespołowej. |
+| HTTP Toolkit | api-testing | True | False | very high | medium | Otwórz, wybierz Android, zeskanuj QR telefonem i obserwuj requesty. |
 | mitmproxy | debugging | True | False | high | medium | Skonfiguruj proxy na telefonie i zainstaluj certyfikat testowy. |
 | Charles Proxy | debugging | False | False | very high | medium | Jeżeli budżet zerowy, zacznij od mitmproxy lub HTTP Toolkit. |
+| Proxyman | debugging | True (macOS) | False | very high | medium | Naucz się Map Local do podmiany odpowiedzi serwera bez angażowania backendowca. |
 | Fiddler Everywhere | debugging | False | False | high | medium | Porównaj koszty z Charles i darmowym mitmproxy. |
 
 ## Bug Reporting & Adnotacje
@@ -86,6 +88,8 @@
 |---|---|---:|---:|---|---|---|
 | MaestroGPT | ai-for-testing | True | False | very high | high | Opisz test po polsku, przejrzyj wygenerowany YAML, uruchom. |
 | Testsigma | ai-for-testing | True (plan) | False | high | very high | Połącz z Jirą, wygeneruj TC ze sprintu, review i uruchom. |
+| Ollama | ai-for-testing | True | False | high | medium | Pobierz model llama3 lub mistral i wklej logi z crasha do bezpiecznej analizy. |
+| LM Studio | ai-for-testing | True | False | high | medium | Pobierz model przez GUI, wklej logi lub wymagania i zacznij rozmowę offline. |
 | GitHub Copilot | ai-for-testing | False | False | high | very high | Używaj go z checklistą bezpieczeństwa: nie akceptuj kodu bez zrozumienia. |
 | Continue.dev | ai-for-testing | True | False | medium-high | high | Połącz z modelem Qwen/Coder przez Ollama i zacznij od generowania testów pomocniczych. |
 | Roo Code / Cline | ai-for-testing | True | True | medium | very high | Zacznij od małego zadania: dodać jeden test, nie refaktor całego projektu. |
