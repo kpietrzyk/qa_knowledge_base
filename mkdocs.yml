@@ -1,0 +1,262 @@
+site_name: QA Knowledge Base
+site_url: https://kpietrzyk.github.io/qa_knowledge_base/
+site_author: Krzysztof Pietrzyk
+site_description: >-
+  Praktyczna baza wiedzy QA dla manualnego testera aplikacji mobilnych
+  który chce wejść w automatyzację i rozsądnie używać AI.
+
+repo_name: kpietrzyk/qa_knowledge_base
+repo_url: https://github.com/kpietrzyk/qa_knowledge_base
+edit_uri: edit/main/
+
+docs_dir: .
+site_dir: site
+
+exclude_docs: |
+  site/
+  scripts/
+  .github/
+  datasets/
+  rag/qa-tool-schema.json
+  rag/qa-tools-index.json
+  validation-report.txt
+  .gitignore
+  .markdownlintrc
+  mkdocs.yml
+  requirements-docs.txt
+  LICENSE.md
+
+theme:
+  name: material
+  language: pl
+  logo: https://api.iconify.design/material-symbols/bug-report-rounded.svg
+  favicon: https://api.iconify.design/material-symbols/bug-report-rounded.svg
+
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Tryb ciemny
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Tryb jasny
+
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.path
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs.link
+    - toc.follow
+    - announce.dismiss
+
+plugins:
+  - search:
+      lang:
+        - pl
+        - en
+      separator: '[\s\-\.]+'
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.keys
+  - tables
+  - toc:
+      permalink: true
+      title: Na tej stronie
+  - attr_list
+  - md_in_html
+  - footnotes
+  - def_list
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/kpietrzyk/qa_knowledge_base
+      name: GitHub
+  generator: false
+  analytics:
+    feedback:
+      title: Czy ta strona była pomocna?
+      ratings:
+        - icon: material/thumb-up-outline
+          name: Tak
+          data: 1
+          note: Dziękuję!
+        - icon: material/thumb-down-outline
+          name: Nie
+          data: 0
+          note: Jak możemy poprawić?
+
+extra_css:
+  - assets/extra.css
+
+copyright: >
+  <a href="https://github.com/kpietrzyk/qa_knowledge_base">QA Knowledge Base</a> —
+  Praktyczny przewodnik dla testerów mobilnych
+
+nav:
+  - 🏠 Start: README.md
+  - 🗺️ Ranking narzędzi: TOOLS_RANKING.md
+  - 📖 Słownik: GLOSSARY.md
+
+  - 🛠️ Narzędzia:
+    - Przegląd kategorii: tools/README.md
+
+    - 📱 Mobile:
+      - ADB (Android Debug Bridge): tools/mobile/adb.md
+      - Android Studio / Emulator: tools/mobile/android-studio-emulator.md
+      - scrcpy: tools/mobile/scrcpy.md
+      - Xcode Simulator: tools/mobile/xcode-simulator.md
+      - Genymotion Desktop: tools/mobile/genymotion.md
+      - BrowserStack: tools/mobile/browserstack.md
+      - QuickTime Player: tools/mobile/quicktime-player.md
+      - OBS Studio: tools/mobile/obs-studio.md
+      - Vysor: tools/mobile/vysor.md
+      - Firebase Crashlytics: tools/mobile/firebase-crashlytics.md
+      - Firebase Test Lab: tools/mobile/firebase-test-lab.md
+      - Maestro: tools/mobile/maestro.md
+      - Appium Inspector: tools/mobile/appium-inspector.md
+      - Appium: tools/mobile/appium.md
+      - Katalon Studio: tools/mobile/katalon.md
+      - Espresso: tools/mobile/espresso.md
+      - XCUITest: tools/mobile/xcuitest.md
+
+    - 🌐 API Testing:
+      - Postman: tools/api/postman.md
+      - Bruno: tools/api/bruno.md
+      - Hoppscotch: tools/api/hoppscotch.md
+      - HTTP Toolkit: tools/api/http-toolkit.md
+      - Reqable: tools/api/reqable.md
+      - OpenAPI / Swagger: tools/api/openapi-swagger.md
+      - JWT — podstawy: tools/api/jwt-basics.md
+
+    - 🕵️ Debugging & Proxy:
+      - mitmproxy: tools/debugging/mitmproxy.md
+      - Proxyman: tools/debugging/proxyman.md
+      - Charles Proxy: tools/debugging/charles-proxy.md
+      - Fiddler Everywhere: tools/debugging/fiddler-everywhere.md
+      - Sentry: tools/debugging/sentry.md
+      - Allure Report: tools/debugging/allure-report.md
+
+    - 🌍 Web:
+      - Playwright: tools/web/playwright.md
+      - Browser DevTools: tools/web/browser-devtools.md
+      - Lighthouse: tools/web/lighthouse.md
+      - Dostępność (a11y): tools/web/web-accessibility.md
+
+    - 🤖 AI dla QA:
+      - Przegląd + bezpieczeństwo danych: tools/ai/README.md
+      - GitHub Copilot: tools/ai/github-copilot.md
+      - Continue.dev: tools/ai/continuedev.md
+      - Roo Code / Cline: tools/ai/roo-code-cline.md
+      - Ollama (lokalny LLM): tools/ai/ollama.md
+      - LM Studio: tools/ai/lm-studio.md
+      - Testsigma: tools/ai/testsigma.md
+      - MaestroGPT: tools/ai/maestrogpt.md
+      - Playwright MCP: tools/ai/playwright-mcp.md
+      - Appium MCP: tools/ai/appium-mcp.md
+      - Browser Use: tools/ai/browser-use.md
+      - ⚠️ AI Risk Checklist: tools/ai/ai-risk-checklist.md
+
+    - 📋 Test Management:
+      - Jira: tools/test-management/jira.md
+      - Qase: tools/test-management/qase.md
+      - AgileTest: tools/test-management/agiletest.md
+      - Testomat.io: tools/test-management/testomat.md
+      - Xray: tools/test-management/xray.md
+      - Kiwi TCMS: tools/test-management/kiwi-tcms.md
+      - TestLink: tools/test-management/testlink.md
+
+    - 🐛 Bug Reporting:
+      - Przegląd: tools/bug-reporting/README.md
+      - Jam: tools/bug-reporting/jam.md
+      - Bird Eats Bug: tools/bug-reporting/bird-eats-bug.md
+      - Greenshot: tools/bug-reporting/greenshot.md
+      - Loom: tools/bug-reporting/loom.md
+      - Instabug: tools/bug-reporting/instabug.md
+
+    - 🔍 UI Inspection & A11y:
+      - Przegląd: tools/ui-inspection/README.md
+      - Figma Dev Mode: tools/ui-inspection/figma-dev-mode.md
+      - Android Layout Inspector: tools/ui-inspection/layout-inspector.md
+      - Xcode Accessibility Inspector: tools/ui-inspection/xcode-accessibility-inspector.md
+      - Accessibility Scanner: tools/ui-inspection/accessibility-scanner.md
+      - uiautomatorviewer: tools/ui-inspection/uiautomatorviewer.md
+
+  - ⚡ Workflows:
+    - Wszystkie workflows: workflows/README.md
+    - 🐛 Bug Investigation (Mobile): workflows/bug-investigation-mobile.md
+    - 🌐 Bug Investigation (API): workflows/bug-investigation-api.md
+    - 💥 Crash Analysis (Android): workflows/crash-analysis-android.md
+    - 🚀 Regresja przed releasem: workflows/regression-before-release.md
+    - 🔍 Sesja eksploracyjna: workflows/exploratory-session.md
+    - 🤖 Test design z AI: workflows/ai-assisted-test-design.md
+    - ⚙️ Manual → Automatyzacja: workflows/from-manual-to-automation.md
+
+  - 💬 Prompty AI:
+    - Jak używać promptów: prompts/README.md
+    - Test Cases: prompts/test-case-prompts.md
+    - Bug Reports: prompts/bug-report-prompts.md
+    - Mobile Testing: prompts/mobile-testing-prompts.md
+    - Exploratory Testing: prompts/exploratory-testing-prompts.md
+    - API Testing: prompts/api-testing-prompts.md
+    - QA Copilot: prompts/qa-copilot-prompts.md
+
+  - ✅ Checklisty:
+    - Mobile App: checklists/mobile-app-checklist.md
+    - Release: checklists/release-checklist.md
+    - Regression: checklists/regression-checklist.md
+    - Security: checklists/security-basic-checklist.md
+    - Accessibility: checklists/accessibility-basic-checklist.md
+
+  - 📄 Szablony:
+    - Bug Report: templates/bug-report-template.md
+    - Test Case: templates/test-case-template.md
+    - Test Plan: templates/test-plan-template.md
+    - Daily Workflow: templates/qa-daily-workflow.md
+
+  - 🎓 Ścieżki nauki:
+    - Manual Mobile → Automatyzacja: learning-paths/manual-mobile-qa-to-automation.md
+    - Junior → Mid QA: learning-paths/junior-to-mid-qa.md
+    - AI Tools Path: learning-paths/qa-ai-tools-path.md
+
+  - ℹ️ O repo:
+    - Roadmap: roadmap.md
+    - Źródła i weryfikacja: SOURCES.md
+    - Jak współtworzyć: CONTRIBUTING.md
+    - RAG — Chunking Guide: rag/chunking_guide.md
+    - RAG — README: rag/README.md

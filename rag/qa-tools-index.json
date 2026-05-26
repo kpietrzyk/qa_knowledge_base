@@ -1,0 +1,287 @@
+[
+  {
+    "name": "ADB",
+    "category": "mobile-testing",
+    "subcategory": "debugging",
+    "free": true,
+    "free_plan_note": "Część Android SDK Platform Tools — całkowicie darmowe",
+    "difficulty": "medium",
+    "manual_tester_value": "very high",
+    "automation_value": "high",
+    "requires_code": false,
+    "best_for": [
+      "zbieranie logów (logcat) do bug reportu",
+      "instalacja APK na urządzeniu lub emulatorze",
+      "nagrywanie ekranu (screenrecord)",
+      "zrzuty ekranu",
+      "pełny bugreport diagnostyczny",
+      "symulacja intencji Android (deep linki)"
+    ],
+    "not_best_for": [
+      "testowanie aplikacji iOS",
+      "użytkownicy bez dostępu do terminala"
+    ],
+    "use_when": "Gdy potrzebujesz technicznych danych z urządzenia Android: logów, nagrania ekranu, zrzutu lub pełnego raportu diagnostycznego. Niezbędne przy każdym bug reporcie crashu lub ANR.",
+    "first_workflow": "1. Podłącz urządzenie USB → adb devices. 2. adb logcat > log.txt — zbieraj logi. 3. Odtwórz buga. 4. Ctrl+C aby zatrzymać. 5. Dołącz log.txt do ticket.",
+    "next_step": "Naucz się filtrowania logcat: adb logcat -s TAG i adb logcat *:E. Dodaj adb shell dumpsys do zbierania info o procesach.",
+    "related_tools": ["Android Studio / Emulator", "mitmproxy", "scrcpy", "Maestro"],
+    "url": "https://developer.android.com/tools/adb",
+    "license_note": "Darmowe — część Android SDK Platform Tools Google",
+    "platform": ["Windows", "macOS", "Linux", "Android"]
+  },
+  {
+    "name": "Maestro",
+    "category": "mobile-automation",
+    "subcategory": "yaml-e2e",
+    "free": true,
+    "free_plan_note": "Open source CLI darmowy; Maestro Cloud (chmura) jest płatny",
+    "difficulty": "easy-medium",
+    "manual_tester_value": "very high",
+    "automation_value": "high",
+    "requires_code": false,
+    "best_for": [
+      "pierwsze kroki w automatyzacji mobilnej bez pisania kodu",
+      "szybkie flow E2E w formacie YAML",
+      "testy regresji dla Android i iOS",
+      "smoke suite po każdym buildzie"
+    ],
+    "not_best_for": [
+      "złożona logika warunkowa (lepiej Appium)",
+      "integracja z zaawansowanymi frameworkami testowymi"
+    ],
+    "use_when": "Gdy manualny tester chce wejść w automatyzację mobilną bez frameworka Appium i bez pisania kodu Java/Python. Idealny start dla juniorów.",
+    "first_workflow": "1. maestro download. 2. Stwórz flow.yaml: launchApp, tapOn, inputText, assertVisible. 3. maestro test flow.yaml. 4. Obejrzyj wyniki.",
+    "next_step": "Dodaj assertVisible i screenshot do flow. Następnie skonfiguruj uruchomienie w CI/CD przez maestro test w GitHub Actions.",
+    "related_tools": ["ADB", "Appium Inspector", "MaestroGPT", "Allure Report"],
+    "url": "https://github.com/mobile-dev-inc/maestro",
+    "license_note": "Open source (Apache 2.0); Maestro Cloud jest usługą płatną — sprawdź aktualne ceny",
+    "platform": ["Windows", "macOS", "Linux", "Android", "iOS"]
+  },
+  {
+    "name": "mitmproxy",
+    "category": "debugging",
+    "subcategory": "proxy",
+    "free": true,
+    "free_plan_note": "W pełni open source — bezpłatny",
+    "difficulty": "medium-hard",
+    "manual_tester_value": "high",
+    "automation_value": "medium",
+    "requires_code": false,
+    "best_for": [
+      "przechwytywanie requestów HTTP/HTTPS aplikacji mobilnej",
+      "analiza ruchu sieciowego bez płatnego Charlesa",
+      "mockowanie odpowiedzi serwera",
+      "testowanie certificate pinning (bypass)"
+    ],
+    "not_best_for": [
+      "użytkownicy preferujący GUI (użyj Charles lub Proxyman)",
+      "szybka konfiguracja na urządzeniu iOS bez doświadczenia"
+    ],
+    "use_when": "Gdy chcesz przechwycić i analizować requesty aplikacji mobilnej bez płatnego oprogramowania. Wymagana konfiguracja proxy na urządzeniu i instalacja certyfikatu CA.",
+    "first_workflow": "1. pip install mitmproxy. 2. mitmweb — otwiera GUI w przeglądarce. 3. Skonfiguruj proxy na telefonie (IP komputera, port 8080). 4. Zainstaluj certyfikat CA z mitm.it. 5. Obserwuj requesty w mitmweb.",
+    "next_step": "Naucz się pisać skrypty Python do automatycznej modyfikacji requestów. Użyj mitmproxy do testowania obsługi błędów 500/503.",
+    "related_tools": ["Charles Proxy", "Proxyman", "HTTP Toolkit", "Fiddler Everywhere"],
+    "url": "https://mitmproxy.org/",
+    "license_note": "Open source (MIT) — darmowe do użytku komercyjnego",
+    "platform": ["Windows", "macOS", "Linux", "Android", "iOS"]
+  },
+  {
+    "name": "Postman",
+    "category": "api-testing",
+    "subcategory": "api-client",
+    "free": true,
+    "free_plan_note": "Plan darmowy z ograniczeniami (liczba requestów, kolekcji, mock servers); sprawdź aktualne warunki",
+    "difficulty": "easy-medium",
+    "manual_tester_value": "very high",
+    "automation_value": "high",
+    "requires_code": false,
+    "best_for": [
+      "manualne testowanie REST API",
+      "kolekcje requestów z podziałem na środowiska",
+      "automatyczne testy API (skrypty JS w zakładce Tests)",
+      "mock servers do testowania bez backendu",
+      "dokumentacja API"
+    ],
+    "not_best_for": [
+      "wersjonowanie kolekcji w Git (Bruno jest lepszy)",
+      "użytkownicy preferujący minimalistyczne narzędzia"
+    ],
+    "use_when": "Gdy musisz sprawdzać backend aplikacji mobilnej niezależnie od UI. Standardowe narzędzie dla każdego testera API.",
+    "first_workflow": "1. Utwórz workspace. 2. New Request → GET https://api.example.com/health. 3. Send → sprawdź status 200. 4. Dodaj environment variable dla base URL. 5. Zapisz do kolekcji.",
+    "next_step": "Dodaj testy w zakładce Tests (pm.test, pm.expect). Skonfiguruj środowiska dev/staging/prod. Uruchamiaj kolekcje przez Collection Runner.",
+    "related_tools": ["Bruno", "Hoppscotch", "OpenAPI/Swagger", "JWT Decoder"],
+    "url": "https://www.postman.com/",
+    "license_note": "Plan darmowy z ograniczeniami; plan Basic/Professional płatny — sprawdź aktualne warunki przed użyciem komercyjnym",
+    "platform": ["Windows", "macOS", "Linux", "Web"]
+  },
+  {
+    "name": "Playwright",
+    "category": "web-automation",
+    "subcategory": "e2e",
+    "free": true,
+    "free_plan_note": "Open source — całkowicie darmowy",
+    "difficulty": "medium",
+    "manual_tester_value": "high",
+    "automation_value": "very high",
+    "requires_code": true,
+    "best_for": [
+      "automatyzacja E2E aplikacji webowych",
+      "testowanie paneli admina i webview w aplikacjach mobilnych",
+      "testy regresji w CI/CD",
+      "generowanie testów przez Codegen (nagrywanie)",
+      "testy cross-browser: Chrome, Firefox, Safari"
+    ],
+    "not_best_for": [
+      "testy natywnych aplikacji mobilnych (użyj Appium/Maestro)",
+      "osoby bez znajomości TypeScript/JavaScript"
+    ],
+    "use_when": "Gdy aplikacja mobilna ma panel admina webowy, webview, PWA albo procesy backendowe dostępne przez przeglądarkę.",
+    "first_workflow": "1. npm init playwright@latest. 2. npx playwright codegen https://myapp.com — nagraj test. 3. npx playwright test — uruchom. 4. npx playwright show-report — przejrzyj wyniki.",
+    "next_step": "Naucz się Page Object Model. Dodaj Allure Reporter. Skonfiguruj uruchomienie w GitHub Actions CI.",
+    "related_tools": ["Playwright MCP", "Allure Report", "Browser DevTools", "Qase"],
+    "url": "https://github.com/microsoft/playwright",
+    "license_note": "Open source (Apache 2.0) — darmowe do użytku komercyjnego",
+    "platform": ["Windows", "macOS", "Linux", "Web"]
+  },
+  {
+    "name": "GitHub Copilot",
+    "category": "ai-for-testing",
+    "subcategory": "coding-assistant",
+    "free": false,
+    "free_plan_note": "Płatne lub przez licencję firmową; sprawdź czy firma ma dostęp",
+    "difficulty": "easy-medium",
+    "manual_tester_value": "high",
+    "automation_value": "very high",
+    "requires_code": false,
+    "best_for": [
+      "generowanie test cases z user story",
+      "pisanie skryptów automatyzacji (Playwright, Appium)",
+      "wyjaśnianie kodu i selektorów",
+      "przyspieszenie pisania kolekcji Postman",
+      "review wygenerowanych testów"
+    ],
+    "not_best_for": [
+      "testerzy bez dostępu do repozytorium kodu",
+      "dane poufne — nie wklejaj tokenów i haseł produkcyjnych"
+    ],
+    "use_when": "Gdy masz dostęp do repo i chcesz szybciej rozumieć kod oraz tworzyć automaty. Wymaga weryfikacji każdego wygenerowanego fragmentu.",
+    "first_workflow": "1. Otwórz plik testowy w VS Code. 2. Napisz komentarz: // Test: login with invalid password. 3. Copilot zasugeruje kod. 4. Przejrzyj i zaakceptuj. 5. Uruchom test — nie akceptuj bez uruchomienia.",
+    "next_step": "Używaj Copilot Chat do wyjaśniania selektorów i refaktoryzacji testów. Połącz z checklistą ai-risk-checklist.md przed każdym użyciem.",
+    "related_tools": ["Ollama", "Continue.dev", "Roo Code / Cline", "Playwright"],
+    "url": "https://github.com/features/copilot",
+    "license_note": "Płatne (Individual/Business/Enterprise); u niektórych firm dostępne w ramach licencji — sprawdź",
+    "platform": ["Windows", "macOS", "Linux", "Web"]
+  },
+  {
+    "name": "Ollama",
+    "category": "ai-for-testing",
+    "subcategory": "local-llm",
+    "free": true,
+    "free_plan_note": "Open source; każdy model ma osobną licencję — sprawdź przed użyciem komercyjnym",
+    "difficulty": "easy-medium",
+    "manual_tester_value": "high",
+    "automation_value": "medium",
+    "requires_code": false,
+    "best_for": [
+      "lokalny LLM bez wysyłania danych do chmury",
+      "analiza logów zawierających dane firmowe lub NDA",
+      "generowanie TC z dostępem do wewnętrznej dokumentacji",
+      "integracja z Continue.dev w VS Code"
+    ],
+    "not_best_for": [
+      "słabe komputery (modele 7B+ wymagają ≥ 8GB RAM)",
+      "szybkie eksperymenty bez instalacji (użyj ChatGPT)"
+    ],
+    "use_when": "Gdy chcesz używać AI do analizy logów i kodu bez wysyłania danych do chmury — np. dane firmowe objęte NDA, tokeny produkcyjne, logi z danymi użytkowników.",
+    "first_workflow": "1. Pobierz ollama.com. 2. ollama pull llama3.2. 3. ollama run llama3.2. 4. Wklej logcat → zapytaj: 'Wyjaśnij co ten błąd oznacza'. 5. Oceń odpowiedź vs znana specyfikacja.",
+    "next_step": "Połącz z Continue.dev w VS Code jako lokalny asystent kodu i testów. Dodaj modele kodujące: deepseek-coder lub qwen2.5-coder.",
+    "related_tools": ["LM Studio", "Continue.dev", "GitHub Copilot"],
+    "url": "https://ollama.com/",
+    "license_note": "Open source (MIT); każdy model LLM ma własną licencję — sprawdź przed użyciem komercyjnym",
+    "platform": ["Windows", "macOS", "Linux"]
+  },
+  {
+    "name": "Jam",
+    "category": "bug-reporting",
+    "subcategory": "screen-recording",
+    "free": true,
+    "free_plan_note": "Plan darmowy dostępny; premium płatny — sprawdź aktualne limity",
+    "difficulty": "easy",
+    "manual_tester_value": "very high",
+    "automation_value": "low",
+    "requires_code": false,
+    "best_for": [
+      "szybkie nagranie buga z automatycznymi logami",
+      "bug reporting webowy z network trace",
+      "integracja z Jirą — jeden klik tworzy ticket",
+      "zbieranie Console logs i Network requests automatycznie"
+    ],
+    "not_best_for": [
+      "aplikacje natywne Android/iOS (użyj Instabug lub scrcpy+Loom)",
+      "prywatne środowiska bez dostępu do internetu"
+    ],
+    "use_when": "Gdy chcesz zgłosić buga webowego z pełnym kontekstem technicznym (logi, requesty, screenshots) w jak najkrótszym czasie. Idealne dla testerów manualnych web.",
+    "first_workflow": "1. Zainstaluj rozszerzenie Chrome. 2. Kliknij ikonę Jam → Start recording. 3. Odtwórz buga. 4. Stop → Jam automatycznie dołącza logi i requesty. 5. Wyślij link lub utwórz Jira ticket.",
+    "next_step": "Połącz z Jirą i ustaw jako domyślne narzędzie do raportowania bugów webowych w zespole. Skonfiguruj szablony ticketów.",
+    "related_tools": ["Bird Eats Bug", "Loom", "Greenshot", "Jira"],
+    "url": "https://jam.dev/",
+    "license_note": "Plan darmowy z limitami; sprawdź aktualne warunki premium",
+    "platform": ["Web"]
+  },
+  {
+    "name": "Qase",
+    "category": "test-management",
+    "subcategory": "test-case-management",
+    "free": true,
+    "free_plan_note": "Plan darmowy do 3 użytkowników; potem płatny — sprawdź aktualne ceny",
+    "difficulty": "easy",
+    "manual_tester_value": "very high",
+    "automation_value": "high",
+    "requires_code": false,
+    "best_for": [
+      "zarządzanie test cases w nowoczesnym UI",
+      "test runs z raportowaniem wyników",
+      "integracja z Jirą — linkowanie TC do ticketów",
+      "importowanie wyników automatyzacji (Playwright, Appium)"
+    ],
+    "not_best_for": [
+      "self-hosted (użyj Kiwi TCMS lub TestLink)",
+      "bardzo duże teamy z zaawansowanym BDD (Xray)"
+    ],
+    "use_when": "Gdy szukasz darmowego nowoczesnego TMS dla małego teamu z integracją Jira. Dobry start dla zespołów bez istniejącego TMS.",
+    "first_workflow": "1. Utwórz projekt. 2. Dodaj test suite (np. 'Logowanie'). 3. Utwórz test case: tytuł, kroki, oczekiwany wynik. 4. Utwórz Test Run. 5. Wykonaj TC i oznacz: Pass / Fail / Skip.",
+    "next_step": "Połącz wyniki automatyzacji z Appium/Playwright przez Qase API reporter. Skonfiguruj integrację z Jirą do auto-tworzenia bugów.",
+    "related_tools": ["Jira", "Testomat.io", "Xray", "Allure Report"],
+    "url": "https://qase.io/",
+    "license_note": "Plan darmowy do 3 użytkowników; sprawdź aktualne ceny planów płatnych",
+    "platform": ["Web"]
+  },
+  {
+    "name": "Appium Inspector",
+    "category": "mobile-automation",
+    "subcategory": "element-inspector",
+    "free": true,
+    "free_plan_note": "Open source — całkowicie darmowy",
+    "difficulty": "easy-medium",
+    "manual_tester_value": "high",
+    "automation_value": "very high",
+    "requires_code": false,
+    "best_for": [
+      "znajdowanie selektorów elementów UI (resource-id, accessibility id, XPath)",
+      "inspekcja hierarchii widoków Android i iOS",
+      "przygotowanie selektorów do Appium i Maestro",
+      "weryfikacja atrybutów dostępności elementów"
+    ],
+    "not_best_for": [
+      "użytkownicy bez uruchomionego serwera Appium",
+      "szybkie sprawdzenie selektora (użyj DevTools dla webview)"
+    ],
+    "use_when": "Gdy chcesz znaleźć selektory elementów w działającej aplikacji mobile bez pisania kodu. Niezbędny przy tworzeniu pierwszych testów automatycznych.",
+    "first_workflow": "1. Uruchom Appium Server. 2. Otwórz Appium Inspector. 3. Wpisz Capabilities (deviceName, platformName, app). 4. Start Session. 5. Kliknij element na podglądzie → sprawdź resource-id i accessibility id.",
+    "next_step": "Użyj znalezionych selektorów w skryptach Appium lub plikach YAML Maestro. Preferuj accessibility id nad XPath — są stabilniejsze.",
+    "related_tools": ["Appium", "Maestro", "ADB", "uiautomatorviewer"],
+    "url": "https://github.com/appium/appium-inspector",
+    "license_note": "Open source (Apache 2.0) — darmowe do użytku komercyjnego",
+    "platform": ["Windows", "macOS", "Linux", "Android", "iOS"]
+  }
+]
