@@ -1,0 +1,94 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "QA Tool",
+  "description": "Schema for a single QA tool entry in the knowledge base",
+  "type": "object",
+  "required": ["name", "category", "free", "difficulty", "manual_tester_value", "automation_value", "requires_code", "url"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nazwa narzędzia"
+    },
+    "category": {
+      "type": "string",
+      "enum": ["mobile-testing", "mobile-automation", "api-testing", "web-testing", "web-automation", "ai-for-testing", "debugging", "test-management", "bug-reporting", "ui-inspection", "automation-reporting"],
+      "description": "Główna kategoria narzędzia"
+    },
+    "subcategory": {
+      "type": "string",
+      "description": "Podkategoria, np. proxy, e2e, api-client"
+    },
+    "free": {
+      "type": "boolean",
+      "description": "Czy narzędzie ma darmowy plan lub jest w pełni darmowe"
+    },
+    "free_plan_note": {
+      "type": "string",
+      "description": "Opis ograniczeń darmowego planu lub warunków licencji"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["easy", "easy-medium", "medium", "medium-hard", "hard"],
+      "description": "Poziom trudności dla nowego użytkownika"
+    },
+    "manual_tester_value": {
+      "type": "string",
+      "enum": ["low", "medium", "medium-high", "high", "very high"],
+      "description": "Wartość narzędzia dla testera manualnego"
+    },
+    "automation_value": {
+      "type": "string",
+      "enum": ["low", "medium", "medium-high", "high", "very high"],
+      "description": "Wartość narzędzia dla automatyzacji"
+    },
+    "requires_code": {
+      "type": "boolean",
+      "description": "Czy używanie narzędzia wymaga pisania kodu"
+    },
+    "best_for": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Lista zastosowań w których narzędzie jest najlepsze"
+    },
+    "not_best_for": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Zastosowania do których narzędzie nie jest zalecane"
+    },
+    "use_when": {
+      "type": "string",
+      "description": "Opis sytuacji kiedy warto użyć tego narzędzia"
+    },
+    "first_workflow": {
+      "type": "string",
+      "description": "Opis pierwszego praktycznego workflow dla nowego użytkownika"
+    },
+    "next_step": {
+      "type": "string",
+      "description": "Następny krok po opanowaniu podstaw"
+    },
+    "related_tools": {
+      "type": "array",
+      "items": {"type": "string"},
+      "description": "Nazwy powiązanych narzędzi z bazy"
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Oficjalny URL narzędzia"
+    },
+    "license_note": {
+      "type": "string",
+      "description": "Uwaga o licencji — zawsze weryfikuj aktualne warunki"
+    },
+    "platform": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["Windows", "macOS", "Linux", "Android", "iOS", "Web", "Cross-platform"]
+      },
+      "description": "Platformy na których narzędzie działa"
+    }
+  },
+  "additionalProperties": false
+}
