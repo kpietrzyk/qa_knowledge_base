@@ -7,24 +7,14 @@ site_description: >-
 
 repo_name: kpietrzyk/qa_knowledge_base
 repo_url: https://github.com/kpietrzyk/qa_knowledge_base
-edit_uri: edit/main/
+edit_uri: edit/main/docs/
 
-docs_dir: .
+docs_dir: docs
 site_dir: site
 
 exclude_docs: |
-  site/
-  scripts/
-  .github/
-  datasets/
   rag/qa-tool-schema.json
   rag/qa-tools-index.json
-  validation-report.txt
-  .gitignore
-  .markdownlintrc
-  mkdocs.yml
-  requirements-docs.txt
-  LICENSE.md
 
 theme:
   name: material
