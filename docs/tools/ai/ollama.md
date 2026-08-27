@@ -47,6 +47,10 @@ Używaj Ollamy zawsze wtedy, gdy chcesz skorzystać z AI, ale nie możesz lub ni
 | `qwen2.5-coder` | ~4GB | analiza kodu, YAML, JSON |
 | `phi3` | ~2GB | szybkie odpowiedzi na słabszym sprzęcie |
 
+## Co nowego (v0.33, 2026)
+
+Ollama może teraz działać jako **gateway modeli** wewnątrz Claude Desktop — jednym przełącznikiem łączysz lokalne modele (offline, bezpieczne dla danych firmowych) z modelami chmurowymi w tym samym kliencie. To druga, obok Continue.dev, praktyczna ścieżka integracji.
+
 ## Następny krok
 
 Połącz Ollamę z Continue.dev w VS Code — lokalny AI-asystent bezpośrednio w edytorze kodu testów.

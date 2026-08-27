@@ -34,6 +34,10 @@ Używaj tego narzędzia wtedy, gdy zespół ma już testy automatyczne (np. Play
 4. Uruchom import — Testomat.io wczyta nazwy testów z kodu i wyświetli je obok manualnych.
 5. Utwórz `Test Plan` łączący testy manualne i automatyczne > uruchom i sprawdź ujednolicony raport.
 
+## Co nowego (2026)
+
+Doszło śledzenie defektów: dedykowana strona **Defects** per projekt, raport Defects w Analytics, oraz zakładki Defects/Users na milestone'ach — łatwiej zobaczyć, gdzie kumulują się błędy, bez ręcznego liczenia w Jirze.
+
 ## Następny krok
 
 Skonfiguruj reporter Testomat.io w pipeline CI/CD — po każdym buildie wyniki automatycznie trafią do projektu i będą widoczne razem z historią poprzednich przebiegów.

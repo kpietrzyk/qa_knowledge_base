@@ -4,17 +4,23 @@ You are acting as a research assistant for the `kpietrzyk/qa_knowledge_base` rep
 
 ## Your Task
 
-Scan the web, X.com (via Grok CLI), and YouTube (via Gemini CLI) for updates relevant to tools documented in this repo. Then compile a structured update report and save it as `weekly-update-report.md` in the repo root.
+Scan the web, X.com (via Grok CLI), and YouTube for updates relevant to tools documented in this repo. Then compile a structured update report and save it as `weekly-update-report.md` in the repo root.
 
 ---
 
 ## Step 1 — Check available CLIs
 
-Before using Grok or Gemini, check their syntax:
+Before using Grok or Gemini/Antigravity, check their syntax:
 ```
 grok --help
 gemini --help
+agy --help
 ```
+
+Notes from prior runs:
+- The `gemini` CLI has been replaced on this machine by `agy` (Antigravity CLI, `agy -p "<prompt>"` for single-turn/non-interactive mode). If `agy` isn't found either, fall back to the `WebSearch` tool for the YouTube step — it works but returns weaker publish-date precision, so flag that caveat in the report.
+- If `agy` requests a `read_url` permission that the sandbox auto-denies, do not pass `--dangerously-skip-permissions` — the Claude Code harness's own classifier blocks that flag as a broad bypass regardless of target CLI. Fall back to `WebSearch` instead of fighting it.
+- If `gh` fails with `Bad credentials`, skip CLI auth and hit the public GitHub API directly: `curl -s https://api.github.com/repos/<owner>/<repo>/releases/latest`.
 
 ---
 
@@ -31,11 +37,22 @@ Use Grok to search X.com for recent posts and announcements about each tool cate
 
 For each query note: tool name, what changed, source URL, date.
 
+### Accounts to check directly (confirmed active/high-signal as of 2026-08)
+
+Beyond the keyword queries above, pull recent posts from these specific handles — they've proven to post real product changes rather than generic chatter:
+
+- Mobile: `@maestro__dev` (very active on MCP/AI-agent integration), `@AppiumDevs`, `@browserstack`
+- API: `@use_bruno` (ships fast — check every run), `@getpostman`
+- Debugging/proxy: `@proxyman_app`. Skip `@mitmproxy` and `@charlesproxy` on X — both dormant since 2023; check their GitHub releases instead (Step 4).
+- Web: `@playwrightweb`, and `@debs_obrien` (Debbie O'Brien, Playwright DevRel — often posts feature deep-dives before the official blog covers them)
+- AI for QA: `@ollama`, `@browser_use`, `@github` (Copilot)
+- Test management: `@testomatio`. Skip `@XrayApp` on X — dormant since May 2025.
+
 ---
 
-## Step 3 — Scan YouTube via Gemini CLI
+## Step 3 — Scan YouTube
 
-Use Gemini to find recent YouTube videos (last 30 days) about tools in this repo:
+Use `agy -p` (or `gemini` if still installed) to find recent YouTube videos (last 30 days) about tools in this repo. If neither CLI works, use `WebSearch` instead and note the fallback in the report:
 
 - `Appium tutorial 2026 new features`
 - `Playwright new features 2026`
@@ -70,9 +87,22 @@ Fetch and skim these pages for news published in the last 30 days:
 
 ---
 
+## Step 5b — Scan newsletters / communities (cross-check)
+
+These curate QA/testing news independently of the tool-specific sources above — useful as a cross-check for anything the direct scans missed:
+
+- **Software Testing Weekly** (Vitaliy Shibaev's newsletter) — broad weekly curation across tools, AI, and testing trends.
+- **TestGuild** (Joe Colantonio) — podcast + newsletter, strong on tool releases and AI-in-testing trends.
+- **Ministry of Testing / Club MoT** — community articles, strongest on manual/exploratory testing (complements this repo's automation focus).
+- **Debbie O'Brien's blog/YouTube** — best single source specifically for Playwright.
+
+Search or fetch each for anything published in the last 30 days relevant to tools in this repo.
+
+---
+
 ## Step 6 — Cross-reference with repo content
 
-Read the relevant `.md` files in `docs/tools/` to understand what version or information is currently documented. For each finding from steps 2–5, check if our docs are outdated or missing something important.
+Read the relevant `.md` files in `docs/tools/` to understand what version or information is currently documented. For each finding from steps 2–5b, check if our docs are outdated or missing something important.
 
 ---
 

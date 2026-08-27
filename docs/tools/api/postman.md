@@ -34,6 +34,10 @@ Używaj tego narzędzia wtedy, gdy jego zastosowanie skraca drogę od obserwacji
 4. Porównaj, czy narzędzie realnie skróciło pracę.
 5. Dopiero wtedy dodaj je do stałego workflow.
 
+## Kierunek rozwoju (2026)
+
+Postman coraz mocniej stawia na AI-agentów: **Orbit** to darmowe narzędzie, które pozwala agentom AI samodzielnie znajdować odpowiednie endpointy do zadania (bez logowania). Doszły też **AI Engineer** (śledzenie danych między API, auto-review kodu) oraz **Passport** — architektura trzymająca sekrety API wewnątrz Twojej sieci. Jeśli zespół łączy Postmana z workflow AI, warto to sprawdzić.
+
 ## Następny krok
 
 Dodaj testy w zakładce Tests i uruchamiaj kolekcje w Newman.

@@ -33,6 +33,10 @@ Używaj tego narzędzia wtedy, gdy jego zastosowanie skraca drogę od obserwacji
 4. Porównaj, czy narzędzie realnie skróciło pracę.
 5. Dopiero wtedy dodaj je do stałego workflow.
 
+## Co nowego (2026)
+
+Code review w PR-ach ma teraz dwa tryby (GA): **Balanced** (głębsza analiza) i **Lite** — możesz ustawić domyślny na poziomie repo/organizacji. Copilot App zyskał też **build-and-test dla iOS i Android** wprost w czacie — kompilacja i uruchomienie bez wychodzenia z rozmowy z agentem, przydatne przy szybkiej weryfikacji zmian przed przekazaniem do QA.
+
 ## Następny krok
 
 Używaj go z checklistą bezpieczeństwa: nie akceptuj kodu bez zrozumienia.

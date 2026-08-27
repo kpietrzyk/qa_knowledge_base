@@ -42,6 +42,10 @@ Używaj Proxymana wtedy, gdy chcesz ocenić, czy błąd leży w aplikacji (Front
 4. Uruchom daną akcję w aplikacji mobilnej.
 5. Obserwuj, jak frontend obsługuje niepoprawne dane.
 
+## Co nowego (6.15.0, 2026)
+
+Proxyman dodał grupowanie ruchu iOS Simulatora per urządzenie oraz lepsze wsparcie dla **MCP** — agenci AI (np. przez wtyczkę Codex) mogą teraz korzystać z przechwyconego ruchu bezpośrednio. W aplikacji iOS pojawił się też JS scripting do modyfikowania requestów/odpowiedzi.
+
 ## Następny krok
 
 Naucz się generować "złe" JSONy za pomocą AI (patrz: prompty/api-testing-prompts.md) i wstrzykiwać je przez Map Local do testów error-state aplikacji.

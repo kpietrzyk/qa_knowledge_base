@@ -34,6 +34,12 @@ Używaj tego narzędzia wtedy, gdy potrzebujesz potwierdzić błąd na konkretny
 4. Przetestuj manualnie w oknie przeglądarki — możesz zmieniać lokalizację, obracać ekran, symulować połączenia.
 5. Zrób zrzut ekranu lub nagraj sesję wideo > pobierz jako dowód do bug raportu.
 
+## Nowe produkty (2026)
+
+- **Test Companion** — agentic AI wbudowane w IDE, pomaga pisać, uruchamiać, debugować i utrzymywać testy.
+- **Accessibility DevTools** — wykrywanie problemów z dostępnością wprost podczas pisania kodu, zanim trafi do QA.
+- Nowe modele telefonów (np. Pixel 11) trafiają na platformę zwykle w ciągu godziny od premiery detalicznej.
+
 ## Następny krok
 
 Skonfiguruj App Automate, żeby uruchamiać testy Appium na realnych urządzeniach — zamiast na emulatorze. Wystarczy zmienić `platformName` i dodać klucz BrowserStack do capabilities.

@@ -34,6 +34,10 @@ Używaj tego narzędzia wtedy, gdy jego zastosowanie skraca drogę od obserwacji
 4. Porównaj, czy narzędzie realnie skróciło pracę.
 5. Dopiero wtedy dodaj je do stałego workflow.
 
+## Co nowego (v1.60–1.62, 2026)
+
+Playwright MCP (serwer + CLI) jest teraz **wbudowany** — nie trzeba już instalować go osobno, wystarczy `npx playwright mcp`. To pozwala agentom AI (Claude Code, Cursor itp.) sterować prawdziwą przeglądarką przez Playwrighta. Zobacz też `docs/tools/ai/playwright-mcp.md`. Inne nowości: wirtualny autentykator WebAuthn/passkey do testów logowania, bezpośrednie API do `page.localStorage`/`sessionStorage`, oraz `retryStrategy: 'isolated'` (powtórki na końcu, pojedynczo, zamiast od razu).
+
 ## Następny krok
 
 Zacznij od Playwright Codegen i testów w TypeScript.

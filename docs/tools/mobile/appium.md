@@ -33,6 +33,10 @@ Używaj tego narzędzia wtedy, gdy jego zastosowanie skraca drogę od obserwacji
 4. Porównaj, czy narzędzie realnie skróciło pracę.
 5. Dopiero wtedy dodaj je do stałego workflow.
 
+## Aktualna wersja (2026)
+
+Appium jest teraz w linii **3.x** (breaking changes względem Appium 2 — sprawdź plan migracji, jeśli masz starsze projekty). Ważne dla iOS: **iOS 26.4+ wymaga drivera XCUITest 10.23.2+** (kompatybilnego z Appium 3) — jeśli testy na nowszych symulatorach/urządzeniach nagle przestają działać, to pierwsze miejsce do sprawdzenia.
+
 ## Następny krok
 
 Zacznij od prostych testów w Pythonie albo Javie, potem dodaj Page Object i Allure.

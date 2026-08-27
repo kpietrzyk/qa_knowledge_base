@@ -32,9 +32,21 @@ Używaj tego narzędzia wtedy, gdy jego zastosowanie skraca drogę od obserwacji
 4. Porównaj, czy narzędzie realnie skróciło pracę.
 5. Dopiero wtedy dodaj je do stałego workflow.
 
+## Co nowego (v4.x, 2026)
+
+Bruno przestało być tylko "lekką alternatywą dla Postmana" — wersja 4.x dodała funkcje, które realnie zmieniają workflow:
+
+- **Mock server** — lokalny serwer HTTP oparty o kolekcję, zwraca przykładowe odpowiedzi bez backendu (przydatne do testowania error states przed gotowym API).
+- **Rich-text docs editor** — dokumentacja endpointów bez pisania Markdown ręcznie.
+- **Typed variables** — zmienne przestały być tylko stringami.
+- **AI w edytorze skryptów** (v4.0+) — generowanie testów/dokumentacji/skryptów, własny klucz API (OpenAI/Anthropic/kompatybilne), działa lokalnie.
+- Global client certs, GCP Secret Manager, otwieranie wielu kolekcji z monorepo.
+
+Link do changelogu: https://github.com/usebruno/bruno/releases
+
 ## Następny krok
 
-Utwórz kolekcje dla logowania, profilu, zamówień i krytycznych endpointów.
+Utwórz kolekcje dla logowania, profilu, zamówień i krytycznych endpointów. Jeśli masz Bruno 4.x, wypróbuj mock server do symulowania błędnych odpowiedzi API zamiast czekać na backendowca.
 
 ## Ryzyka i ograniczenia
 

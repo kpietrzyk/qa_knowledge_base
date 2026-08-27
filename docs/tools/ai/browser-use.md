@@ -32,6 +32,10 @@ Używaj tego narzędzia wtedy, gdy jego zastosowanie skraca drogę od obserwacji
 4. Porównaj, czy narzędzie realnie skróciło pracę.
 5. Dopiero wtedy dodaj je do stałego workflow.
 
+## Co nowego (3.0 CLI, 2026)
+
+Nowy CLI utrzymuje trwałą sesję przeglądarki (cloud/CDP) zamiast wykonywać jedno wywołanie narzędzia na każde kliknięcie — w testach społeczności podawano ok. **72% przyspieszenia** względem starszego podejścia. Warto sprawdzić przy dłuższych flow eksploracyjnych.
+
 ## Następny krok
 
 Stosuj do paneli admina i procesów okołomobilnych, nie jako zamiennik stabilnej regresji.

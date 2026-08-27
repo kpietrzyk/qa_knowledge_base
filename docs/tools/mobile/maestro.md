@@ -34,6 +34,10 @@ Używaj tego narzędzia wtedy, gdy jego zastosowanie skraca drogę od obserwacji
 4. Porównaj, czy narzędzie realnie skróciło pracę.
 5. Dopiero wtedy dodaj je do stałego workflow.
 
+## Maestro MCP (2026)
+
+Maestro ma teraz open-source'owy **serwer MCP** — agenci kodujący (Claude Code, Cursor, Codex, Grok Build) mogą sterować i testować dowolną aplikację iOS/Android bezpośrednio. Przydatne np. do szybkiej eksploracji nowego builda przez AI zanim człowiek usiądzie do testów manualnych. Zobacz dokumentację MCP w repo: https://github.com/mobile-dev-inc/maestro.
+
 ## Następny krok
 
 Napisz pierwsze flow YAML: launchApp, tapOn, inputText, assertVisible.
