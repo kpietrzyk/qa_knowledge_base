@@ -15,12 +15,14 @@ site_dir: site
 exclude_docs: |
   rag/qa-tool-schema.json
   rag/qa-tools-index.json
+  !templates/
 
 theme:
   name: material
   language: pl
-  logo: https://api.iconify.design/material-symbols/bug-report-rounded.svg
-  favicon: https://api.iconify.design/material-symbols/bug-report-rounded.svg
+  logo: assets/images/favicon.png
+  favicon: assets/images/favicon.png
+  font: false
 
   palette:
     - media: "(prefers-color-scheme: light)"

@@ -1,9 +1,14 @@
 appId: com.example.app
 ---
-- launchApp
-- tapOn: "Email"
+- launchApp:
+    clearState: true
+- tapOn:
+    id: "email_input"
 - inputText: "test@example.com"
-- tapOn: "Password"
+- tapOn:
+    id: "password_input"
 - inputText: "Password123!"
-- tapOn: "Login"
-- assertVisible: "Home"
+- tapOn:
+    id: "login_button"
+- assertVisible:
+    id: "home_screen"

@@ -11,12 +11,19 @@ Ustrukturyzowane odkrywanie błędów i ryzyk w określonym czasie, bez predefin
 - Przed ważnym releasem — jako uzupełnienie regresji
 - "Mam godzinę — co warto sprawdzić?"
 
+## Dane wejściowe
+
+- obszar lub ryzyko do zbadania,
+- build i środowisko,
+- dostępne wymagania oraz znane problemy,
+- timebox i osoba odpowiedzialna za debrief.
+
 ## Narzędzia
 
-- scrcpy + nagranie (dowód sesji)
-- ADB logcat (w tle — bez aktywnego czytania)
+- [scrcpy](../tools/mobile/scrcpy.md) — nagranie sesji
+- [ADB](../tools/mobile/adb.md) — logcat w tle
 - Notatnik / aplikacja do notatek
-- AI (pomoc w charterze i analizie po sesji)
+- [Ollama](../tools/ai/ollama.md) — opcjonalna, lokalna pomoc w charterze i podsumowaniu
 
 ---
 
@@ -25,21 +32,31 @@ Ustrukturyzowane odkrywanie błędów i ryzyk w określonym czasie, bez predefin
 ### Krok 1 — Przygotowanie (5 min)
 
 Sformułuj charter sesji — jedno zdanie opisujące cel:
+
 > "Eksplorowanie funkcji [X] w poszukiwaniu problemów z [Y]"
 
 Przykłady:
+
 - "Eksplorowanie formularza rejestracji w poszukiwaniu problemów z walidacją"
 - "Eksplorowanie trybu offline w poszukiwaniu problemów z synchronizacją danych"
 - "Eksplorowanie dostępności (a11y) ekranu logowania"
 
 ### Krok 2 — Kick-off (1 min)
 
-```bash
-# Uruchom nagranie
-scrcpy --record session-$(date +%Y%m%d-%H%M%S).mp4
+```powershell
+$sessionId = Get-Date -Format 'yyyyMMdd-HHmmss'
 
 # Uruchom logcat w tle
-adb logcat > session-log-$(date +%Y%m%d-%H%M%S).txt &
+$logcat = Start-Process adb `
+  -ArgumentList "logcat" `
+  -RedirectStandardOutput "session-log-$sessionId.txt" `
+  -PassThru -NoNewWindow
+
+# Nagrywaj do naciśnięcia Ctrl+C
+scrcpy --record="session-$sessionId.mp4"
+
+# Zatrzymaj proces logcat po sesji
+Stop-Process -Id $logcat.Id
 ```
 
 Ustaw timer na czas sesji (zwykle 45-90 minut).
@@ -47,6 +64,7 @@ Ustaw timer na czas sesji (zwykle 45-90 minut).
 ### Krok 3 — Eksploracja
 
 Stosuj heurystyki:
+
 - **CRUD**: Create, Read, Update, Delete — sprawdź każdą operację
 - **Granice**: puste pola, maksymalne długości, specjalne znaki
 - **Przerwania**: połączenie telefoniczne, powiadomienie, obrót ekranu
@@ -54,20 +72,25 @@ Stosuj heurystyki:
 - **Uprawnienia**: odmów uprawnienia, które aplikacja prosi
 
 Notuj na bieżąco:
+
 - Znalezione bugi (krótki opis + czas na nagraniu)
 - Pytania do PO/developera
 - Obszary wymagające głębszego testu
+- Pokryte i pominięte obszary charteru
 
 ### Krok 4 — Debrief (10 min po sesji)
 
 Po sesji:
+
 - [ ] Zatrzymaj nagranie i logcat
 - [ ] Przejrzyj notatki i pogrupuj: bugi / pytania / obserwacje / ryzyka
 - [ ] Priorytetyzuj bugi (Critical/High/Medium/Low)
-- [ ] Otwórz tickety Jira dla bugów High+
+- [ ] Zarejestruj lub świadomie odrzuć każde znalezione ryzyko; nie pomijaj go wyłącznie z powodu niskiej severity
+- [ ] Ustal właściciela pytań i dalszych działań
 
-Użyj AI do podsumowania:
-```
+Opcjonalnie użyj lokalnego AI do przygotowania draftu podsumowania:
+
+```text
 Mam notatki z sesji eksploracyjnej. Pomóż mi:
 1. Pogrupować obserwacje według priorytetu
 2. Sformułować tytuły bugów do Jiry
@@ -75,6 +98,8 @@ Mam notatki z sesji eksploracyjnej. Pomóż mi:
 
 Notatki: [WKLEJ]
 ```
+
+Przed użyciem usuń dane osobowe, tokeny, nazwy klientów i inne dane wewnętrzne. Zweryfikuj podsumowanie z oryginalnymi notatkami.
 
 ### Krok 5 — Dokumentacja sesji
 
@@ -97,3 +122,20 @@ Tester: [Imię]
 ### Propozycja kolejnej sesji
 - ...
 ```
+
+## Wynik i kryteria zakończenia
+
+Workflow jest zakończony po debriefie, gdy zapisano charter, timebox, pokryty zakres, dowody, błędy, obserwacje, pytania, ryzyka i właścicieli kolejnych działań.
+
+## Prywatność i bezpieczeństwo
+
+- Używaj kont oraz danych testowych i nie nagrywaj danych osób trzecich.
+- Przed udostępnieniem zanonimizuj nagrania, logi i notatki.
+- Notatki wewnętrzne analizuj lokalnie; nie wysyłaj ich do modelu chmurowego bez zatwierdzonej zgody.
+- Ustal retencję nagrań przed rozpoczęciem sesji.
+
+## Powiązane materiały
+
+- [Prompty do testów eksploracyjnych](../prompts/exploratory-testing-prompts.md)
+- [Analiza błędu w aplikacji mobilnej](bug-investigation-mobile.md)
+- [Regresja przed releasem](regression-before-release.md)

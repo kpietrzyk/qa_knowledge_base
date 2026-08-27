@@ -2,20 +2,28 @@
 
 ## Cel
 
-W ograniczonym czasie (20-60 min) potwierdzić, że nowa wersja aplikacji nie zepsuła krytycznych funkcji. Nie jest to pełna regresja — to targeted smoke test oparty o ryzyko.
+W ograniczonym czasie (20-60 min) ocenić, czy nowa wersja aplikacji nie zepsuła krytycznych funkcji. Nie jest to pełna regresja — to ukierunkowany smoke test oparty na ryzyku.
 
 ## Kiedy używać
 
 Przed każdym releasem: przed wysłaniem buildu do review, przed publikacją w sklepie, przed deployem na staging/production.
 
+## Dane wejściowe
+
+- identyfikator buildu i środowisko,
+- changelog oraz zakres zmian,
+- lista naprawionych błędów i znanych ryzyk,
+- urządzenia i konta testowe,
+- osoba odpowiedzialna za decyzję go/no-go.
+
 ## Narzędzia
 
 - Urządzenie fizyczne lub emulator
-- scrcpy (nagranie przebiegu)
-- ADB (instalacja buildu)
-- Checklista: `checklists/release-checklist.md`
-- Jira (zgłoszenie znalezionych bugów)
-- AI (szybka analiza logów przy błędzie)
+- [scrcpy](../tools/mobile/scrcpy.md) — nagranie przebiegu
+- [ADB](../tools/mobile/adb.md) — instalacja i weryfikacja buildu
+- [Checklista release](../checklists/release-checklist.md)
+- [Jira](../tools/test-management/jira.md) lub inny system zgłoszeń
+- [Ollama](../tools/ai/ollama.md) — opcjonalna, lokalna analiza zanonimizowanych logów
 
 ---
 
@@ -23,16 +31,26 @@ Przed każdym releasem: przed wysłaniem buildu do review, przed publikacją w s
 
 ### Krok 1 — Przygotowanie (5 min)
 
-```bash
-# Zainstaluj nowy build
+Wybierz i zapisz typ instalacji. `adb install -r` zachowuje dane aplikacji, dlatego nie jest testem fresh install.
+
+```powershell
+$packageName = "com.example.app"
+
+# Scenariusz A: upgrade z zachowaniem danych
 adb install -r app-new-version.apk
 
+# Scenariusz B: fresh install — usuwa lokalne dane aplikacji
+adb uninstall $packageName
+adb install app-new-version.apk
+
 # Sprawdź wersję
-adb shell dumpsys package com.example.app | grep versionName
+adb shell dumpsys package $packageName | Select-String versionName
 ```
 
-- Wyczyść dane aplikacji lub użyj czystego konta testowego
+- Nie wykonuj `adb uninstall` na urządzeniu z potrzebnymi danymi bez kopii lub zgody właściciela.
+- Dla fresh install użyj czystego konta testowego; dla upgrade zachowaj przygotowany stan z poprzedniej wersji.
 - Sprawdź changelog/diff — co się zmieniło? To najwyższe ryzyko.
+- Zapisz build ID, środowisko, urządzenie, konto testowe i zakres testu.
 
 ### Krok 2 — Priorytety (co testować NAJPIERW)
 
@@ -43,10 +61,12 @@ adb shell dumpsys package com.example.app | grep versionName
 
 ### Krok 3 — Smoke test (15-30 min)
 
-Przejdź checklistę `checklists/release-checklist.md`.
+Przejdź [checklistę release](../checklists/release-checklist.md).
 
 Minimalne kroki:
+
 - [ ] Instalacja aplikacji (fresh install)
+- [ ] Upgrade z poprzedniej wspieranej wersji, jeśli dotyczy
 - [ ] Logowanie / rejestracja
 - [ ] Główna funkcja (happy path)
 - [ ] Kluczowe funkcje wymienione w changelog
@@ -56,20 +76,41 @@ Minimalne kroki:
 ### Krok 4 — Decyzja
 
 | Wynik | Decyzja |
-|---|---|
-| Brak krytycznych błędów | ✅ Release możliwy |
-| Bug High na nowej funkcji | ⚠️ Zależy od decyzji PM — opisz ryzyko |
-| Bug Critical (crash, brak loginu) | 🛑 Blokuj release, zgłoś natychmiast |
-| Bug Medium/Low | 📝 Zgłoś, nie blokuj release — decyzja PM |
+| --- | --- |
+| Zakres wykonany, brak nieakceptowalnego ryzyka | ✅ Rekomenduj release |
+| Niepełny zakres lub niepotwierdzone ryzyko | ⚠️ Decyzja warunkowa — opisz brakujące dowody |
+| Crash, utrata danych, luka bezpieczeństwa lub niedostępna krytyczna ścieżka | 🛑 Rekomenduj blokadę release |
+| Pozostałe błędy | 📝 Oceń wpływ biznesowy; sama etykieta severity nie rozstrzyga decyzji |
+
+Ostateczną decyzję podejmuje wskazany właściciel release na podstawie dowodów i zaakceptowanego ryzyka.
 
 ### Krok 5 — Dokumentacja
 
-- Dołącz do ticketu release: "Regresja wykonana, znaleziono X bugów, Y blokujących"
-- Krytyczne bugi linkuj do release ticketu
+- Dołącz do zgłoszenia release: build ID, środowisko, zakres, urządzenia, wynik, znalezione błędy i pominięte testy.
+- Połącz wszystkie istotne błędy ze zgłoszeniem release.
+- Zapisz rekomendację QA, decyzję właściciela release, osobę i timestamp.
 
 ---
 
 ## Zasada minimalizmu
 
 20 minut dobrego smoke testu > 2 godziny chaotycznego klikania.
+
 Sprawdzaj to, co się zmieniło + to, co najważniejsze.
+
+## Wynik i kryteria zakończenia
+
+Workflow kończy się udokumentowaną rekomendacją QA oraz decyzją go/no-go. Raport wskazuje wykonany i pominięty zakres, dowody, otwarte ryzyka oraz właściciela decyzji.
+
+## Prywatność i bezpieczeństwo
+
+- Używaj wyłącznie kont i danych testowych.
+- Nie publikuj logów, nagrań ani screenshotów zawierających dane osobowe lub produkcyjne.
+- Analizę AI wykonuj lokalnie po anonimizacji materiału.
+- Artefakty release przechowuj zgodnie z polityką retencji projektu.
+
+## Powiązane materiały
+
+- [Checklista release](../checklists/release-checklist.md)
+- [Analiza błędu w aplikacji mobilnej](bug-investigation-mobile.md)
+- [Analiza crasha Android](crash-analysis-android.md)
