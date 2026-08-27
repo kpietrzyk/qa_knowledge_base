@@ -2,8 +2,6 @@
 
 Praktyczna baza wiedzy o narzędziach QA, szczególnie dla **manualnego testera aplikacji mobilnych**, który chce wejść w automatyzację i rozsądnie używać AI.
 
-> ⚠️ **Uwaga:** Nazwa repozytorium zawiera literówkę (`knowladge` zamiast `knowledge`) — zostanie poprawiona w kolejnej wersji.
-
 ---
 
 ## Dla kogo jest to repozytorium?
@@ -53,13 +51,13 @@ To jest proces pracy testera QA. Każde narzędzie w tym repo służy do jednego
 ## Struktura repozytorium
 
 ```text
-qa_knowladge_base/
+qa_knowledge_base/
 ├── README.md                    ← ten plik
 ├── GLOSSARY.md                  ← słownik terminów dla juniorów
 ├── TOOLS_RANKING.md             ← od czego zacząć (Tier 1/2/3)
 ├── CONTRIBUTING.md              ← jak współtworzyć repo
 ├── roadmap.md                   ← plan rozbudowy
-├── SOURCES.md                   ← źródła i weryfikacja
+├── SOURCES.md                   ← źródła, weryfikacja, konta/newslettery do śledzenia
 │
 ├── tools/                       ← opisy narzędzi według kategorii
 │   ├── mobile/                  ← Android, iOS, ADB, scrcpy, Appium, Maestro...
@@ -86,6 +84,7 @@ qa_knowladge_base/
 ├── learning-paths/              ← ścieżki nauki od manual do automation
 ├── datasets/                    ← CSV/JSON z danymi o narzędziach
 ├── rag/                         ← dane maszynowe pod lokalnego asystenta AI
+├── scripts/                     ← 🆕 prompt cotygodniowego skanu aktualności narzędzi
 └── examples/                    ← przykładowy kod (Appium, Maestro, Playwright)
 ```
 
@@ -115,7 +114,8 @@ qa_knowladge_base/
 | Ścieżki nauki | ✅ |
 | Datasets (CSV/JSON) | ✅ |
 | RAG (schema + index) | ✅ |
+| Cotygodniowy skan aktualności narzędzi | ✅ |
 | Portfolio projects | 🔄 W planach |
 | Skills cards | 🔄 W planach |
 
-**Ostatnia aktualizacja:** 2026-05-26
+**Ostatnia aktualizacja:** 2026-08-27
