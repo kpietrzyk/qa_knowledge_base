@@ -4,7 +4,6 @@ QA Knowledge Base — Tool File Validator
 Checks that all tool files contain required sections.
 """
 
-import os
 import sys
 from pathlib import Path
 from typing import NamedTuple
@@ -48,15 +47,15 @@ def validate_file(filepath: Path) -> FileResult:
     )
 
 def main():
-    tools_dir = Path(__file__).parent.parent / "tools"
+    tools_dir = Path(__file__).parent.parent / "docs" / "tools"
     if not tools_dir.exists():
-        print(f"{RED}Error: tools/ directory not found{RESET}")
+        print(f"{RED}Error: docs/tools/ directory not found{RESET}")
         sys.exit(1)
 
     tool_files = [f for f in tools_dir.rglob("*.md") if f.name != "README.md"]
 
     if not tool_files:
-        print(f"{YELLOW}No tool files found in tools/{RESET}")
+        print(f"{YELLOW}No tool files found in docs/tools/{RESET}")
         sys.exit(0)
 
     results = [validate_file(f) for f in sorted(tool_files)]
@@ -75,7 +74,7 @@ def main():
             status = f"{GREEN}✅ PASS{RESET}"
         else:
             status = f"{RED}❌ FAIL{RESET}"
-        print(f"{status} tools/{rel_path}")
+        print(f"{status} docs/tools/{rel_path}")
 
         for section in result.missing_required:
             print(f"       {RED}Missing required: {section}{RESET}")
